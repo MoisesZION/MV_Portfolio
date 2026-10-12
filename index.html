@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Moisés Varela · Environmental Engineer & GIS Specialist</title>
+    <title>Loren Varela · Environmental Engineer & GIS Specialist</title>
     <meta
       name="description"
       content="Portfolio of Moisés Eduardo Varela Almario, Environmental Engineer working in GIS, remote sensing, geospatial analysis and sustainability."
@@ -11,23 +11,9 @@
     <meta property="og:title" content="Moisés Varela · Environmental Engineer & GIS Specialist" />
     <meta property="og:description" content="GIS, remote sensing, environmental data and sustainability." />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#f5f4ee" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0c1411" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#657368" />
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <script>
-      // Apply saved theme before paint to avoid a flash.
-      try {
-        var t = localStorage.getItem("theme");
-        if (t) document.documentElement.setAttribute("data-theme", t);
-      } catch (e) {}
-    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -36,7 +22,10 @@
       <div class="container header-inner">
         <a class="brand" href="#top" aria-label="Home">
           <span class="brand-mark" aria-hidden="true">MV</span>
-          <span class="brand-name">Moisés Varela</span>
+          <span class="brand-text">
+            <span class="brand-name">Moisés Varela</span>
+            <span class="brand-sub">Portfolio</span>
+          </span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
           <span class="sr-only">Toggle navigation</span>
@@ -51,65 +40,42 @@
             <li><a href="#education">Education</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
-          <button class="theme-toggle" type="button" aria-label="Switch colour theme">
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor" />
-            </svg>
-          </button>
         </nav>
       </div>
     </header>
 
     <main id="main">
-      <!-- HERO -->
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="container hero-grid">
-          <div class="hero-text">
-            <p class="eyebrow mono" data-bind="profile.headline">Environmental Engineer · GIS &amp; Remote Sensing</p>
-            <h1 id="hero-title" class="hero-title" data-bind="profile.name">Moisés Eduardo Varela Almario</h1>
-            <p class="hero-role" data-bind="profile.role">Sustainability Analyst &amp; GIS Specialist at eGREEN SpA</p>
-            <p class="hero-lead" data-bind="profile.lead"></p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#projects">View projects</a>
-              <a class="btn btn-ghost" href="#contact">Get in touch</a>
-              <a class="btn btn-ghost" id="cv-link" hidden>Download CV</a>
-            </div>
-            <ul class="keyword-line mono" id="hero-keywords" aria-label="Areas of focus"></ul>
-          </div>
+      <!-- BANNER: decorative contour pattern, procedurally generated (not real data) -->
+      <div class="banner" aria-hidden="true"><canvas id="contour-canvas"></canvas></div>
 
-          <figure class="map-frame" aria-hidden="true">
-            <div class="map-frame-inner">
-              <canvas id="contour-canvas"></canvas>
-              <span class="tick tick-n mono">N</span>
-              <svg class="north-arrow" viewBox="0 0 24 40"><path d="M12 2 L20 36 L12 28 L4 36 Z" /></svg>
-              <div class="scale-bar"><span></span><span></span><span></span><span></span></div>
-            </div>
-            <figcaption class="mono">Decorative contour pattern · procedurally generated, not real data</figcaption>
-          </figure>
-        </div>
-        <a class="scroll-cue mono" href="#about">Scroll <span aria-hidden="true">↓</span></a>
-      </section>
-
-      <!-- ABOUT -->
-      <section class="section" id="about" aria-labelledby="about-title">
+      <!-- HOME / ABOUT -->
+      <section class="section home" id="about" aria-labelledby="home-title">
         <div class="container">
-          <header class="section-head">
-            <span class="section-index mono">01</span>
-            <h2 id="about-title">About me</h2>
-          </header>
-          <div class="about-grid">
-            <div class="about-photo" id="about-photo"></div>
-            <div class="about-text prose" id="about-text"></div>
-            <dl class="facts" id="about-facts"></dl>
+          <div class="home-content">
+            <div class="text-container">
+              <h1 id="home-title" class="home-title">Welcome to my portfolio!</h1>
+              <p class="home-role">
+                <span data-bind="profile.name">Moisés Eduardo Varela Almario</span> ·
+                <span data-bind="profile.role">Sustainability Analyst &amp; GIS Specialist at eGREEN SpA</span>
+              </p>
+              <div class="prose" id="about-text"></div>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#projects">View projects</a>
+                <a class="btn btn-ghost" href="#contact">Get in touch</a>
+                <a class="btn btn-ghost" id="cv-link" hidden>Download CV</a>
+              </div>
+            </div>
+            <div class="image-container about-photo" id="about-photo"></div>
           </div>
+          <dl class="facts" id="about-facts"></dl>
+          <ul class="keyword-line" id="hero-keywords" aria-label="Areas of focus"></ul>
         </div>
       </section>
 
       <!-- EXPERIENCE -->
-      <section class="section section-alt" id="experience" aria-labelledby="experience-title">
+      <section class="section" id="experience" aria-labelledby="experience-title">
         <div class="container">
           <header class="section-head">
-            <span class="section-index mono">02</span>
             <h2 id="experience-title">Professional experience</h2>
           </header>
           <ol class="timeline" id="experience-list"></ol>
@@ -120,7 +86,6 @@
       <section class="section" id="projects" aria-labelledby="projects-title">
         <div class="container">
           <header class="section-head">
-            <span class="section-index mono">03</span>
             <h2 id="projects-title">Selected projects</h2>
             <p class="section-sub">
               Work from my GitHub repositories, labelled as completed or in progress. Each one links to its
@@ -133,10 +98,9 @@
       </section>
 
       <!-- SKILLS -->
-      <section class="section section-alt" id="skills" aria-labelledby="skills-title">
+      <section class="section" id="skills" aria-labelledby="skills-title">
         <div class="container">
           <header class="section-head">
-            <span class="section-index mono">04</span>
             <h2 id="skills-title">Technical skills</h2>
           </header>
           <div class="skills-grid" id="skills-grid"></div>
@@ -147,16 +111,15 @@
       <section class="section" id="education" aria-labelledby="education-title">
         <div class="container">
           <header class="section-head">
-            <span class="section-index mono">05</span>
             <h2 id="education-title">Education &amp; certifications</h2>
           </header>
           <div class="edu-grid">
             <div>
-              <h3 class="sub-head mono">Education</h3>
+              <h3 class="sub-head">Education</h3>
               <ul class="edu-list" id="education-list"></ul>
             </div>
             <div>
-              <h3 class="sub-head mono">Certifications</h3>
+              <h3 class="sub-head">Certifications</h3>
               <ul class="edu-list" id="cert-list"></ul>
             </div>
           </div>
@@ -167,7 +130,6 @@
       <section class="section section-contact" id="contact" aria-labelledby="contact-title">
         <div class="container">
           <header class="section-head">
-            <span class="section-index mono">06</span>
             <h2 id="contact-title">Contact</h2>
           </header>
           <p class="contact-intro" id="contact-intro"></p>
