@@ -53,7 +53,7 @@ window.SITE_CONTENT = {
       { label: "Languages", value: "Spanish (native) · English (C1) · German (basic)" },
     ],
     // Optional portrait, e.g. "assets/img/profile.jpg". Leave null to show initials.
-    photo: null,
+    photo: "assets/img/profile.jpg",
     // Optional CV PDF, e.g. "assets/docs/CV_Moises_Varela.pdf"
     cvUrl: null,
   },
