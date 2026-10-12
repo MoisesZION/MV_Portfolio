@@ -79,75 +79,228 @@ window.SITE_CONTENT = {
     // Add earlier positions below using the same shape.
   ],
 
+  // Projects below come from Moisés's public GitHub repositories.
   projects: [
     {
-      id: "sentinel-2-indices",
-      title: "Sentinel-2 Spectral Indices",
-      status: "draft",
+      id: "bogota-wetlands",
+      title: "Spatial Analysis of Bogotá's Wetlands",
+      status: "in-progress",
       type: null,
       year: null,
       summary:
-        "Topic placeholder: deriving spectral indices from Sentinel-2 imagery to characterise vegetation and land surface conditions.",
-      tags: ["Sentinel-2", "Google Earth Engine", "Remote Sensing"],
-      tools: ["Google Earth Engine", "Sentinel-2"],
-      data: ["Sentinel-2 imagery"],
-      thumbnail: { src: "assets/img/placeholders/spectral.svg", alt: "Placeholder graphic of abstract spectral bands", placeholder: true },
+        "Python and GeoPandas workflow that cleans, dissolves and measures the 15 wetlands in Bogotá's vegetation-cover layer, then brings in roads, soils and protected areas.",
+      tags: ["Python", "GeoPandas", "Urban Ecology", "Spatial Analysis"],
+      tools: ["Python", "GeoPandas", "Pandas", "Matplotlib", "Folium", "Jupyter", "SQL"],
+      data: [
+        "Vegetation cover of Bogotá wetlands (shapefile)",
+        "Bogotá municipal boundary",
+        "Intermediate road network",
+        "Soil, RUNAP protected areas and UPZ layers",
+      ],
+      thumbnail: { src: "assets/img/projects/bogota-wetlands/thumb.png", alt: "Map of the 15 wetland boundaries in Bogotá produced in the project notebook", placeholder: false },
       sections: {
-        context: null,
-        objectives: null,
-        methods: null,
-        results: null,
+        context:
+          "Bogotá's wetlands are key urban ecosystems. This project builds a reproducible Python workflow to organise and analyse the city's wetland layers as a basis for further spatial analysis.",
+        objectives:
+          "Consolidate wetland vegetation-cover polygons into one boundary per wetland, calculate their areas in a projected CRS, and prepare the other city layers for overlay analysis.",
+        methods: [
+          "Loaded the wetland vegetation-cover layer (7,112 polygons) and dissolved it by wetland name into 15 boundaries, checking geometry validity.",
+          "Reprojected from EPSG:4686 to EPSG:3116 (MAGNA-SIRGAS / Colombia Bogotá) to calculate areas in square metres and hectares.",
+          "Exported results to GeoPackage, GeoJSON and CSV, and built an interactive Folium map. Additional layers (roads, soils, RUNAP, UPZ) were batch-reprojected for the next stage.",
+        ],
+        results: [
+          "The 15 wetlands cover about 2,058 ha in total. The largest are Juan Amarillo or Tibabuyes (437.7 ha), Jaboque (351.9 ha) and Guaymaral (195.4 ha).",
+          "Overlay analysis with the other layers is the next stage of the project.",
+        ],
+      },
+      gallery: [
+        { src: "assets/img/projects/bogota-wetlands/wetland-areas.png", alt: "Horizontal bar chart of wetland area in hectares for the 15 Bogotá wetlands", caption: "Area of each wetland in hectares (EPSG:3116).", placeholder: false },
+        { src: "assets/img/projects/bogota-wetlands/wetland-boundaries.png", alt: "Map of dissolved wetland boundaries in Bogotá", caption: "Dissolved wetland boundaries.", placeholder: false },
+      ],
+      links: [{ label: "GitHub repository", url: "https://github.com/MoisesZION/humedales" }],
+    },
+    {
+      id: "santander-land-cover-change",
+      title: "Land-Cover Change Assessment in Santander, Colombia",
+      status: "completed",
+      type: null,
+      year: null,
+      summary:
+        "Google Earth Engine workflow comparing 2020 and 2025 land cover in Santander to support field validation with cocoa producers, in the context of FEDECACAO–FAO work.",
+      tags: ["Google Earth Engine", "Sentinel-2", "Land-Cover Change", "Deforestation"],
+      tools: ["Google Earth Engine (JavaScript)"],
+      data: [
+        "Sentinel-2 Surface Reflectance (COPERNICUS/S2_SR_HARMONIZED)",
+        "Dynamic World V1",
+        "Hansen Global Forest Change 2024 v1.12",
+        "JRC Global Forest Cover 2020",
+        "FAO GAUL 2015 (boundaries)",
+      ],
+      thumbnail: { src: "assets/img/placeholders/landcover.svg", alt: "Placeholder graphic of abstract land-cover patches", placeholder: true },
+      sections: {
+        context:
+          "A demonstrative exercise for the department of Santander, Colombia, developed in the context of joint work between FEDECACAO and FAO. It shows how global Earth observation products can support analysis and field verification of land-cover change in cocoa-producing areas. The repository describes it as an initial, demonstrative version.",
+        objectives: [
+          "Visualise land-cover change between 2020 and 2025 and compare Sentinel-2 imagery for both periods.",
+          "Analyse NDVI change and flag areas classified as trees in 2020 that show another cover, or specifically crops, in 2025.",
+          "Summarise historical tree-cover loss between 2001 and 2024 as annual statistics.",
+        ],
+        methods: [
+          "Annual Sentinel-2 median mosaics for 2020 and 2025 (cloud filter below 30 % plus QA60 masking), with NDVI for each year and a dNDVI difference layer.",
+          "Dynamic World modal land-cover class per year to detect the transitions trees → other cover and trees → crops.",
+          "Hansen Global Forest Change with a 30 % canopy threshold to compute hectares of tree-cover loss per year, with optional GeoTIFF and CSV exports to Google Drive.",
+        ],
+        results:
+          "The script produces map layers and annual loss statistics inside Google Earth Engine. The repository presents these as demonstration outputs that require field validation, not as a definitive compliance determination.",
       },
       gallery: [],
-      links: [],
+      links: [{ label: "GitHub repository", url: "https://github.com/MoisesZION/fedecacao-fao-cambio-cobertura" }],
     },
     {
-      id: "land-cover-analysis",
-      title: "Satellite Imagery & Land-Cover Analysis",
-      status: "draft",
+      id: "soc-prediction",
+      title: "Soil Organic Carbon Prediction with Remote Sensing and XGBoost",
+      status: "in-progress",
       type: null,
       year: null,
       summary:
-        "Topic placeholder: using satellite imagery and spatial analysis to map and compare land-cover classes.",
-      tags: ["Land Cover", "Satellite Imagery", "Spatial Analysis"],
-      tools: ["ArcGIS Pro", "QGIS"],
-      data: [],
-      thumbnail: { src: "assets/img/placeholders/landcover.svg", alt: "Placeholder graphic of abstract land-cover patches", placeholder: true },
-      sections: { context: null, objectives: null, methods: null, results: null },
-      gallery: [],
-      links: [],
+        "Pipeline that predicts topsoil organic carbon for an olive-grove property in Extremadura, Spain, from Sentinel-2, Sentinel-1, PlanetScope and terrain data using XGBoost.",
+      tags: ["Machine Learning", "XGBoost", "Sentinel-2", "Soil Carbon"],
+      tools: ["Python", "Google Earth Engine", "geemap", "Rasterio", "GeoPandas", "XGBoost", "Optuna", "scikit-learn"],
+      data: [
+        "Sentinel-2 seasonal composites (2021–2023)",
+        "Sentinel-1 SAR (VV/VH)",
+        "PlanetScope 4-band surface reflectance",
+        "SRTM 30 m DEM",
+        "LUCAS 2018 Topsoil (ESDAC) samples",
+      ],
+      thumbnail: { src: "assets/img/projects/soc-prediction/thumb.png", alt: "Predicted soil organic carbon map for the olive-grove property", placeholder: false },
+      sections: {
+        context:
+          "Soil organic carbon is central to carbon accounting in agricultural land. The methodology is adapted from Wang et al. (2024), Remote Sensing 16(17), 3268, which estimated farmland SOC from multi-source remote sensing.",
+        objectives:
+          "Build a reproducible pipeline that goes from satellite data acquisition to a 20 m SOC map for an area of interest.",
+        methods: [
+          "Acquired seasonal Sentinel-2 composites, a six-window Sentinel-1 stack, PlanetScope imagery and SRTM terrain through Google Earth Engine and the Planet API.",
+          "Engineered 171 features, including vegetation, soil, salinity, red-edge and moisture indices, radar indices and terrain variables.",
+          "Trained an XGBoost regressor with Optuna hyper-parameter tuning and produced a GeoTIFF prediction map.",
+        ],
+        results: [
+          "The current model is not yet reliable. Validation R² was 0.545 (RMSE 7.89 g/kg), but the small hold-out test set (n = 21) gave a negative R², and the gap between training and validation scores indicates overfitting.",
+          "The figures below show pipeline outputs, not a validated SOC estimate. More ground-truth samples are needed.",
+        ],
+      },
+      gallery: [
+        { src: "assets/img/projects/soc-prediction/soc-map.png", alt: "Predicted SOC map and frequency distribution", caption: "Pipeline output: predicted SOC map (20 m) and value distribution. Not yet validated.", placeholder: false },
+        { src: "assets/img/projects/soc-prediction/validation-scatter.png", alt: "Observed versus predicted SOC scatter plot", caption: "Observed vs predicted SOC.", placeholder: false },
+        { src: "assets/img/projects/soc-prediction/feature-importance.png", alt: "Bar chart of XGBoost feature importance", caption: "Feature importance of the XGBoost model.", placeholder: false },
+      ],
+      links: [{ label: "GitHub repository", url: "https://github.com/MoisesZION/SOC_prediction" }],
     },
     {
-      id: "forestry-gis",
-      title: "Forestry & Environmental GIS",
-      status: "draft",
+      id: "whisp-workflow",
+      title: "Local OpenForis WHISP Workflow",
+      status: "in-progress",
       type: null,
       year: null,
       summary:
-        "Topic placeholder: applying GIS and remote sensing data, such as GEDI, to forestry and environmental projects.",
-      tags: ["Forestry", "GEDI", "Environmental GIS"],
-      tools: ["QGIS", "ArcGIS Pro"],
-      data: ["GEDI"],
+        "Runs the OpenForis WHISP deforestation-risk analysis locally with Google Earth Engine and Python, so custom GeoJSON plots can be assessed without the online interface.",
+      tags: ["Deforestation Risk", "Google Earth Engine", "OpenForis WHISP", "Python"],
+      tools: ["Python", "Google Earth Engine", "OpenForis WHISP", "Jupyter"],
+      data: ["Custom GeoJSON plots", "WHISP multiband Earth Engine image (forest, commodity and disturbance layers)"],
       thumbnail: { src: "assets/img/placeholders/forest.svg", alt: "Placeholder graphic of abstract canopy profile", placeholder: true },
-      sections: { context: null, objectives: null, methods: null, results: null },
+      sections: {
+        context:
+          "WHISP (\"What is in that plot?\") from OpenForis supports deforestation-free supply-chain assessments by cross-referencing plots with global forest and land-use datasets.",
+        objectives:
+          "Reproduce the official WHISP notebook locally and allow analysis of custom GeoJSON files.",
+        methods: [
+          "Authenticate with Google Earth Engine, load custom GeoJSON plots and build the WHISP multiband image.",
+          "Compute WHISP statistics and risk indicators, then export results to CSV and an enriched GeoJSON.",
+        ],
+        results:
+          "Earth Engine authentication, local execution, custom GeoJSON processing and CSV/GeoJSON export are working. Next steps listed in the repository: better documentation, exploring WHISP output variables and integrating Colombian datasets.",
+      },
       gallery: [],
-      links: [],
+      links: [
+        { label: "GitHub repository", url: "https://github.com/MoisesZION/Whisp_FAO" },
+        { label: "Official OpenForis WHISP", url: "https://github.com/forestdatapartnership/whisp" },
+      ],
     },
     {
-      id: "forest-fire-probability",
-      title: "Forest Fire Probability Modeling",
-      status: "draft",
-      type: null,
+      id: "ndvi-calculator",
+      title: "NDVI Calculator Desktop App",
+      status: "completed",
+      type: "academic",
       year: null,
       summary:
-        "Topic placeholder: environmental modeling of the spatial probability of forest fire occurrence.",
-      tags: ["Environmental Modeling", "Wildfire", "Spatial Analysis"],
-      tools: [],
+        "Desktop application built with Python, PyQt5 and Qt Designer that calculates NDVI from RED and NIR values and explains what the result suggests about vegetation cover.",
+      tags: ["Python", "PyQt5", "NDVI", "Desktop App"],
+      tools: ["Python", "PyQt5", "Qt Designer"],
       data: [],
-      thumbnail: { src: "assets/img/placeholders/fire.svg", alt: "Placeholder graphic of abstract probability surface", placeholder: true },
-      sections: { context: null, objectives: null, methods: null, results: null },
+      thumbnail: { src: "assets/img/placeholders/spectral.svg", alt: "Placeholder graphic of abstract spectral bands", placeholder: true },
+      sections: {
+        context: "An academic project applying Python GUI development to a core remote-sensing concept.",
+        objectives:
+          "Compute NDVI = (NIR − RED) / (NIR + RED) from two input values and give a plain-language interpretation of the vegetation cover it suggests.",
+        methods: [
+          "Interface designed in Qt Designer and loaded from a .ui file; application logic in a dedicated class.",
+          "Input validation for empty, non-numeric and out-of-range values (0–255) and protection against division by zero, with clear error dialogs.",
+        ],
+        results:
+          "A working desktop app that returns NDVI to two decimals with an interpretation from water or bare surfaces up to very dense, vigorous vegetation.",
+      },
       gallery: [],
-      links: [],
+      links: [{ label: "GitHub repository", url: "https://github.com/MoisesZION/ndvi-calculator-pyqt5" }],
+    },
+    {
+      id: "qgis-plugins",
+      title: "QGIS Plugins with PyQGIS",
+      status: "completed",
+      type: "academic",
+      year: null,
+      summary:
+        "Three QGIS 3 plugins written in Python at Universidad Distrital: a WGS84 angular-to-metric distance converter, and tools to show and rename the active layer.",
+      tags: ["QGIS", "PyQGIS", "Python", "Plugin Development"],
+      tools: ["QGIS 3", "PyQGIS", "Python", "Qt Designer", "Plugin Builder"],
+      data: [],
+      thumbnail: { src: "assets/img/placeholders/code.svg", alt: "Placeholder graphic of abstract code lines", placeholder: true },
+      sections: {
+        context: "Developed as part of coursework at Universidad Distrital Francisco José de Caldas to extend QGIS with custom tools.",
+        objectives: "Learn the QGIS plugin structure and automate small GIS tasks through the QGIS Python API.",
+        methods: [
+          "Conversor distancias: converts an angular distance in the WGS84 reference system to a metric distance.",
+          "Mostrar capa activa: shows the display name of the active layer in the table of contents.",
+          "Cambiar nombre capa: renames the active layer from a name entered by the user.",
+        ],
+        results: "Three working plugins (version 0.1) for QGIS 3.",
+      },
+      gallery: [],
+      links: [{ label: "GitHub repository", url: "https://github.com/MoisesZION/QGIS_plugins" }],
+    },
+    {
+      id: "markup-languages-workshop",
+      title: "Geographic Markup Languages Workshop",
+      status: "completed",
+      type: "academic",
+      year: null,
+      summary:
+        "Coursework website for MV Carbon, a nature-based solutions company concept, combining HTML, CSS and JavaScript with XML, KML and GML geographic data.",
+      tags: ["HTML", "XML", "KML", "GML"],
+      tools: ["HTML", "CSS", "JavaScript", "XML Schema (XSD)", "KML", "GML"],
+      data: ["KML placemarks of sites in Bogotá", "GML geodata"],
+      thumbnail: { src: "assets/img/placeholders/code.svg", alt: "Placeholder graphic of abstract code lines", placeholder: true },
+      sections: {
+        context: "Workshop for the Markup Languages course of the GIS specialization.",
+        objectives: "Practise structuring, validating and displaying geographic and business data with web and geographic markup languages.",
+        methods: [
+          "Multi-page site with services, clients, locations and a CV page.",
+          "Invoice data in XML validated against an XSD schema and transformed to HTML with JavaScript.",
+          "Points of interest stored as KML and geodata as GML.",
+        ],
+        results: "A complete multi-page coursework site.",
+      },
+      gallery: [],
+      links: [{ label: "GitHub repository", url: "https://github.com/MoisesZION/Taller_TLM" }],
     },
     /*
      * Example of a finished entry (copy, then edit):

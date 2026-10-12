@@ -454,3 +454,16 @@ p { margin: 0 0 1em; }
 .cert-item h4 { font-size: 1rem; font-family: var(--font-sans); font-weight: 600; letter-spacing: 0; }
 .cert-item .edu-inst { display: inline; margin: 0; font-size: 0.92rem; }
 .cert-item .edu-inst + .mono { display: inline; margin: 0 0 0 8px; }
+.detail-hero:not(.is-placeholder) { background: #ffffff; }
+.detail-hero:not(.is-placeholder) img { object-fit: contain; }
+.gallery .media:not(.is-placeholder) { background: #ffffff; }
+.gallery .media figcaption { background: var(--surface); }
+@media (min-width: 680px) {
+  .project-grid .project-card:first-child:nth-last-child(odd) { grid-column: 1 / -1; }
+  .project-grid .project-card:first-child:nth-last-child(odd) .project-card-link { display: grid; grid-template-columns: 1.2fr 1fr; }
+  .project-grid .project-card:first-child:nth-last-child(odd) .card-media { aspect-ratio: auto; min-height: 100%; border-bottom: 0; border-right: 1px solid var(--line); }
+  .project-grid .project-card:first-child:nth-last-child(odd) .project-card-body { padding: 32px; justify-content: center; }
+  .project-grid .project-card:first-child:nth-last-child(odd) h3 { font-size: 1.7rem; }
+}
+.card-media:not(.is-placeholder) { background: #ffffff; }
+.card-media:not(.is-placeholder) img { object-fit: contain; }
