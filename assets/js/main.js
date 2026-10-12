@@ -147,7 +147,7 @@
             ? '<a href="' + esc(c.url) + '" target="_blank" rel="noopener">' + esc(c.title) + "</a>"
             : esc(c.title);
           return (
-            '<li class="edu-item"><h4>' + title + "</h4>" +
+            '<li class="edu-item cert-item"><h4>' + title + "</h4>" +
             '<p class="edu-inst">' + S.valueOrTodo(c.issuer, "Issuer to be provided") + "</p>" +
             (c.year ? '<p class="mono muted">' + esc(c.year) + "</p>" : "") + "</li>"
           );

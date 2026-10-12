@@ -450,3 +450,7 @@ p { margin: 0 0 1em; }
   .about-photo img, .initials { max-width: 140px; }
   .initials { font-size: 2.8rem; }
 }
+.cert-item { padding: 12px 0; }
+.cert-item h4 { font-size: 1rem; font-family: var(--font-sans); font-weight: 600; letter-spacing: 0; }
+.cert-item .edu-inst { display: inline; margin: 0; font-size: 0.92rem; }
+.cert-item .edu-inst + .mono { display: inline; margin: 0 0 0 8px; }

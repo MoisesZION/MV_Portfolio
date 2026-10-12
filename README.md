@@ -17,7 +17,6 @@ assets/js/project.js    Renders a project detail page
 assets/css/styles.css   Styles, light and dark themes
 assets/img/             Favicon and placeholder graphics
 scripts/check.cjs       Browser smoke test (Playwright)
-.github/workflows/pages.yml  GitHub Pages deployment (runs on push to main)
 ```
 
 ## Editing content
@@ -55,10 +54,26 @@ The script checks desktop and mobile layouts for JavaScript errors, broken image
 
 ## Publish with GitHub Pages
 
-1. Make sure the site is on the `main` branch (merge the working branch into `main`).
-2. In the repository, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**.
-3. Push to `main` (or run the "Deploy to GitHub Pages" workflow manually from the **Actions** tab).
+The site is published straight from the `main` branch. One-time setup:
 
-The site will be available at `https://moiseszion.github.io/MV_Portfolio/`. All paths are relative, so it also works on a custom domain or a `<username>.github.io` repository.
+1. Open **Settings → Pages** in the repository.
+2. Under **Build and deployment**, set **Source** to **Deploy from a branch**, choose **main** and **/ (root)**, and save.
 
-Alternative without Actions: **Settings → Pages → Source: Deploy from a branch**, branch `main`, folder `/ (root)`.
+After a minute or two the site is live at `https://moiseszion.github.io/MV_Portfolio/`.
+
+## Updating the site
+
+The repository folder *is* the website. Whatever is on `main` is what visitors see, and GitHub republishes automatically a minute or two after every change.
+
+- **On github.com:** open the folder you want (for example `assets/img/projects/`), click **Add file → Upload files**, drop your files and click **Commit changes**. To change text, open `assets/js/content.js`, click the pencil icon, edit and commit.
+- **From your computer:** clone the repository with GitHub Desktop, edit or copy files into that local folder, then **Commit to main** and **Push origin**.
+
+Typical changes:
+
+| You want to… | Do this |
+|---|---|
+| Change any text | Edit `assets/js/content.js` |
+| Add a project image | Upload it to `assets/img/projects/` and set its path in the project's `thumbnail` or `gallery` |
+| Add your photo | Upload `assets/img/profile.jpg` and set `profile.photo` |
+| Add your CV | Upload `assets/docs/CV.pdf` and set `profile.cvUrl` |
+| Change colours or fonts | Edit `assets/css/styles.css` (the variables at the top) |

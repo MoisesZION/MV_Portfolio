@@ -25,32 +25,32 @@ window.SITE_CONTENT = {
     name: "Moisés Eduardo Varela Almario",
     shortName: "Moisés Varela",
     initials: "MV",
-    headline: "Environmental Engineer · GIS & Remote Sensing",
+    headline: "Geospatial & Remote Sensing Analyst · Environmental Engineer",
     role: "Sustainability Analyst & GIS Specialist at eGREEN SpA",
     lead:
-      "I combine environmental engineering with geographic information systems, remote sensing and environmental data processing to support sustainability work.",
+      "Environmental Engineer specialized in GIS, remote sensing and Earth observation for environmental and territorial monitoring.",
     keywords: [
       "GIS",
       "Remote Sensing",
-      "Spatial Analysis",
-      "Environmental Modeling",
-      "Land-Cover Analysis",
+      "Earth Observation",
+      "Land-Cover Classification",
+      "Biomass Estimation",
       "Google Earth Engine",
       "Python",
-      "Sustainability",
+      "Carbon Projects",
     ],
     about: [
-      "I am an Environmental Engineer currently pursuing a postgraduate specialization in Geographic Information Systems (GIS).",
-      "My profile brings together environmental engineering, GIS, remote sensing, geospatial analysis, environmental data processing and sustainability. I work with tools such as ArcGIS Pro, QGIS and Google Earth Engine, and with data sources including Sentinel-2 satellite imagery and GEDI.",
-      "Since August 2024 I have worked as Sustainability Analyst & GIS Specialist at eGREEN SpA. My areas of experience include greenhouse gas accounting, life cycle assessment and forestry projects, and I am continuing to develop my skills in Python for geospatial data processing.",
+      "I am an Environmental Engineer specialized in GIS, remote sensing and Earth observation for environmental and territorial monitoring, currently pursuing a postgraduate specialization in Geographic Information Systems at Universidad Distrital Francisco José de Caldas.",
+      "I have hands-on experience processing satellite imagery (Copernicus Sentinel, ALOS PALSAR, GEDI), performing land-cover classification and biomass estimation, and automating geospatial workflows with Python and Google Earth Engine. I work with QGIS and the ArcGIS ecosystem for spatial analysis, geospatial data quality control, metadata management and spatial databases supporting nature-based solutions.",
+      "Since August 2024 I have worked as Sustainability Analyst & GIS Specialist at eGREEN SpA, where my work also covers carbon projects in voluntary markets, greenhouse gas accounting and life cycle assessment. I am continuing to develop my Python skills for geospatial data processing.",
     ],
     // Facts shown as small "at a glance" items in the About section.
     facts: [
       { label: "Discipline", value: "Environmental Engineering" },
       { label: "Studying", value: "Postgraduate specialization in GIS" },
       { label: "Current role", value: "Sustainability Analyst & GIS Specialist" },
-      { label: "Based in", value: null }, // e.g. "Santiago, Chile"
-      { label: "Languages", value: null }, // e.g. "Spanish (native), English"
+      { label: "Based in", value: "Bogotá, Colombia" },
+      { label: "Languages", value: "Spanish (native) · English (C1) · German (basic)" },
     ],
     // Optional portrait, e.g. "assets/img/profile.jpg". Leave null to show initials.
     photo: null,
@@ -63,12 +63,18 @@ window.SITE_CONTENT = {
       role: "Sustainability Analyst & GIS Specialist",
       organization: "eGREEN SpA",
       organizationUrl: null,
-      location: null,
+      location: "Remote · Bogotá, Colombia",
       start: "August 2024",
       end: "Present",
-      // Add 2–4 short, factual bullet points about your responsibilities.
-      highlights: [],
-      tags: ["Sustainability", "GIS"],
+      highlights: [
+        "Analyze and preprocess multi-sensor satellite imagery, including Copernicus Sentinel, ALOS PALSAR and GEDI, for environmental and nature-based solutions monitoring projects.",
+        "Perform land-cover classification, above-ground biomass estimation and anthropogenic activity detection to assess ecosystem condition across project areas.",
+        "Develop automated geospatial processing pipelines using Python (GeoPandas, Rasterio, GDAL), Google Earth Engine and ArcGIS, improving the efficiency and reproducibility of Earth observation workflows.",
+        "Support the design, evaluation and baseline construction of carbon projects (AFOLU, Improved Forest Management) under voluntary market standards, including eligibility, additionality and risk assessments.",
+        "Manage and quality-control large geospatial datasets, maintaining metadata integrity, spatial database organization and standardized technical documentation.",
+        "Collaborate with multidisciplinary, international teams to translate geospatial analysis into decision-support products for sustainability initiatives.",
+      ],
+      tags: ["Earth Observation", "Carbon Projects", "GHG Accounting", "Python", "Google Earth Engine"],
     },
     // Add earlier positions below using the same shape.
   ],
@@ -170,53 +176,76 @@ window.SITE_CONTENT = {
 
   skills: [
     {
-      group: "GIS Software",
-      items: ["ArcGIS Pro", "QGIS"],
-    },
-    {
-      group: "Remote Sensing",
-      items: ["Google Earth Engine", "Sentinel-2 imagery", "GEDI data"],
+      group: "GIS & Earth Observation",
+      items: ["ArcGIS Pro", "ArcMap", "QGIS", "Google Earth Engine", "Satellite image processing (Sentinel, ALOS PALSAR, GEDI)"],
     },
     {
       group: "Spatial Analysis & Modeling",
-      items: ["Spatial analysis", "Environmental modeling", "Land-cover analysis"],
+      items: ["Land-cover classification", "Biomass estimation", "Spectral indices", "Environmental modeling"],
     },
     {
-      group: "Programming",
-      items: ["Python for geospatial data processing (currently developing)"],
+      group: "Programming & Automation",
+      items: ["Python (GeoPandas, Rasterio, GDAL)", "SQL", "R", "Geospatial workflow automation", "Applied machine learning"],
     },
     {
-      group: "Sustainability",
-      items: ["Greenhouse gas accounting", "Life cycle assessment", "Forestry projects"],
+      group: "Data Management",
+      items: ["Spatial data quality control", "Metadata management", "Geospatial databases"],
+    },
+    {
+      group: "Sustainability & Carbon",
+      items: ["Greenhouse gas accounting", "Life cycle assessment", "Carbon projects in voluntary markets (AFOLU, IFM)", "Forestry projects"],
+    },
+    {
+      group: "Languages",
+      items: ["Spanish (native)", "English (C1)", "German (basic)"],
     },
   ],
 
   education: [
     {
       title: "Postgraduate Specialization in Geographic Information Systems",
-      institution: null,
-      period: null,
+      institution: "Universidad Distrital Francisco José de Caldas",
+      period: "2026",
       status: "In progress",
+      notes: "Coursework: Remote Sensing, Geostatistics, Database Design, GIS Laboratory, Object-Oriented Programming, Markup Languages.",
+    },
+    {
+      title: "Master's in Environmental Project Management & Corporate Social Responsibility",
+      institution: "EUDE Business School",
+      period: "2025",
+      status: "Completed",
       notes: null,
     },
     {
-      title: "Environmental Engineering",
-      institution: null,
-      period: null,
+      title: "B.S. Environmental Engineering",
+      institution: "Universidad Distrital Francisco José de Caldas",
+      period: "2024",
       status: "Completed",
       notes: null,
     },
   ],
 
-  // Add certifications as { title, issuer, year, url }.
-  certifications: [],
+  // Certifications as { title, issuer, year, url }. Newest first.
+  certifications: [
+    { title: "Machine Learning & Data Science with Python", issuer: "Udemy", year: "Dec 2025", url: null },
+    { title: "Exploring from the Sky with Remote Sensing and Drones", issuer: "Esri Colombia", year: "Nov 2025", url: null },
+    { title: "ArcGIS Pro Software Course", issuer: "FG Training", year: "Apr 2025", url: null },
+    { title: "Calculating Spectral Indices for Land & Aquatic Applications Using QGIS", issuer: "NASA", year: "Feb 2025", url: null },
+    { title: "Preparing Data for Analysis with Microsoft Excel", issuer: "Microsoft", year: "Dec 2024", url: null },
+    { title: "Environmental Licensing Virtual Course", issuer: "ANLA", year: "Nov 2024", url: null },
+    { title: "Explorer Level Programming: Python", issuer: "MinTIC", year: "Aug 2024", url: null },
+    { title: "Project Management with PMI Methodology", issuer: "Fundación Universitaria Compensar", year: "Jul 2024", url: null },
+    { title: "GIS Application in Forestry and Agroecological Systems", issuer: "SENA", year: "Mar 2024", url: null },
+    { title: "Diploma in Environmental Management, ISO 14001:2015", issuer: "Politécnico de Colombia", year: "Feb 2024", url: null },
+    { title: "Data Science", issuer: "Universidad Distrital Francisco José de Caldas", year: "Nov 2023", url: null },
+  ],
 
   contact: {
     intro:
-      "I am open to conversations about GIS, remote sensing and environmental data projects.",
-    email: null, // e.g. "name@example.com"
-    linkedin: null, // full URL
-    github: null, // full URL
-    location: null,
+      "I am open to conversations about GIS, remote sensing, environmental data and carbon project work.",
+    email: "moisvara97@gmail.com",
+    linkedin: "https://www.linkedin.com/in/moiseszion/",
+    github: "https://github.com/MoisesZION",
+    location: "Bogotá, Colombia",
   },
 };
