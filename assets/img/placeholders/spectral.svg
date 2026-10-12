@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450"><title>Placeholder: abstract spectral bands</title><rect width="800" height="450" fill="#173326"/>
+<rect x="0" y="0" width="62" height="450" fill="#2b4a3a" opacity="0.9"/>
+<rect x="62" y="0" width="62" height="450" fill="#33604a" opacity="0.9"/>
+<rect x="124" y="0" width="62" height="450" fill="#3f7a57" opacity="0.9"/>
+<rect x="186" y="0" width="62" height="450" fill="#5b9461" opacity="0.9"/>
+<rect x="248" y="0" width="62" height="450" fill="#86a865" opacity="0.9"/>
+<rect x="310" y="0" width="62" height="450" fill="#b6b866" opacity="0.9"/>
+<rect x="372" y="0" width="62" height="450" fill="#d4b65c" opacity="0.9"/>
+<rect x="434" y="0" width="62" height="450" fill="#d79a4c" opacity="0.9"/>
+<rect x="496" y="0" width="62" height="450" fill="#c97a3e" opacity="0.9"/>
+<rect x="558" y="0" width="62" height="450" fill="#a85a35" opacity="0.9"/>
+<rect x="620" y="0" width="62" height="450" fill="#7d4430" opacity="0.9"/>
+<rect x="682" y="0" width="62" height="450" fill="#573327" opacity="0.9"/>
+<rect x="744" y="0" width="62" height="450" fill="#3c271f" opacity="0.9"/>
+<path d="M0 300 C120 240 200 330 320 260 S520 160 620 230 S760 300 800 250" stroke="#ffffff" stroke-opacity="0.7" stroke-width="3" fill="none"/>
+<text x="784" y="432" text-anchor="end" font-family="monospace" font-size="16" fill="#ffffff" fill-opacity="0.85" letter-spacing="2">PLACEHOLDER · NOT PROJECT DATA</text></svg>
